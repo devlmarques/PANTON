@@ -1,7 +1,3 @@
-SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
-SET time_zone = "+00:00";
-
-
 CREATE TABLE `users` (
   `id_user` int(11) NOT NULL,
   `utilizador` varchar(64) NOT NULL,
@@ -51,4 +47,23 @@ CREATE TABLE `Ficheiros` (
   `id_user` int(11) NOT NULL,
   `ficheiro` varchar(50) NOT NULL,
   `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Categorias` (
+  `id_categoria` int(11) NOT NULL,
+  `descricao` varchar(60) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `Noticias` (
+  `id_noticia` int(11) NOT NULL,
+  `id_relacao_cn` int(11) NOT NULL,
+  `id_user` varchar(11) NOT NULL,
+  `Titulo` varchar(120) NOT NULL,
+  `corpo` text NOT NULL,
+  `data` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+CREATE TABLE `ER_CN` (
+  `id_relacao_cn` int(11) NOT NULL,
+  `id_categoria` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
